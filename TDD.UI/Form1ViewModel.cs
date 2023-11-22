@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace TDD.UI
 {
-    public class Form1ViewModel :INotifyPropertyChanged
+    public class Form1ViewModel : ViewModelBase
     {
         //private System.Windows.Forms.Button button1;
         //private System.Windows.Forms.Label label1;
@@ -32,12 +32,7 @@ namespace TDD.UI
             get { return _aTextBoxText; }
             set
             {
-                if(_aTextBoxText == value)
-                {
-                    return;
-                }
-                _aTextBoxText = value;
-                OnPropertyChanged("ATextBoxText");
+                SetProperty(ref _aTextBoxText, value);
             }
         }
         private string _bTextBoxText = string.Empty;
@@ -46,12 +41,7 @@ namespace TDD.UI
             get { return _bTextBoxText; }
             set 
             { 
-                if(_bTextBoxText == value)
-                {
-                    return;
-                }
-                _bTextBoxText = value;
-                OnPropertyChanged("BTextBoxText");
+                SetProperty(ref _bTextBoxText, value);
             }
         }
         private string _resultLabelText = string.Empty;
@@ -60,12 +50,7 @@ namespace TDD.UI
             get { return _resultLabelText; }
             set 
             { 
-                if(_resultLabelText == value)
-                {
-                    return;
-                }
-                _resultLabelText = value;
-                OnPropertyChanged("ResultLabelText");
+                SetProperty(ref _resultLabelText, value);
             }
         }
 
