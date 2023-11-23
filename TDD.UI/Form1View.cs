@@ -13,7 +13,7 @@ namespace TDD.UI
 {
     public partial class Form1View : Form
     {
-        public Form1ViewModel _viewModel = new Form1ViewModel();
+        public Form1ViewModel _viewModel = new Form1ViewModel(new DB());
         private List<int> nums = new List<int>(5);
         
 

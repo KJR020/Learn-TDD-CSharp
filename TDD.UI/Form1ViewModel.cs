@@ -26,7 +26,15 @@ namespace TDD.UI
         //private System.Windows.Forms.TextBox BTextBox;
         //private System.Windows.Forms.Button CalculationButton;
 
+        private IDB _db;
         private string _aTextBoxText = string.Empty;
+
+        public Form1ViewModel(IDB db)
+        {             
+            _db = db;
+        }
+
+
         public string ATextBoxText 
         { 
             get { return _aTextBoxText; }
@@ -69,9 +77,8 @@ namespace TDD.UI
             int a = Convert.ToInt32(ATextBoxText);
             int b = Convert.ToInt32(BTextBoxText);
 
-            ResultLabelText = Calculation.Sum(a,b).ToString();
-
-            OnPropertyChanged(String.Empty);
+            int dbValue = _db.GetDBValue();
+            ResultLabelText = (Calculation.Sum(a,b)+ dbValue) .ToString();
         }
     }
 }
